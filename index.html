@@ -2,433 +2,808 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ComputerServiceX · Soporte técnico profesional</title>
-  <!-- Font Awesome 6 (iconos) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Google Fonts (Inter + espacio a profesional) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>ComputerServiceX | Servicios Técnicos & Licencias</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: system-ui, 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
     }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f2f5f9;
-      color: #1e2b3a;
-      line-height: 1.5;
+      background: #f4f9fe;
+      color: #0a2a3b;
       scroll-behavior: smooth;
     }
 
-    /* inmersivo: gradientes dinámicos y glassmorphism */
-    .hero, .services, .cta-footer {
-      animation: fadeGlow 2s ease-out;
-    }
-
-    @keyframes fadeGlow {
-      0% { opacity: 0; filter: blur(2px); transform: translateY(10px); }
-      100% { opacity: 1; filter: blur(0); transform: translateY(0); }
-    }
-
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 1.5rem 2rem;
-    }
-
-    /* header profesional */
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      background: rgba(255,255,255,0.7);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-radius: 40px;
-      padding: 0.8rem 2rem;
-      margin: 1.5rem 2rem 0.5rem 2rem;
-      box-shadow: 0 15px 35px -10px rgba(0,30,50,0.15);
-      border: 1px solid rgba(255,255,255,0.5);
-    }
-
-    .logo {
-      font-size: 1.9rem;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      background: linear-gradient(145deg, #0b2b40, #2c5f7e);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .logo i {
-      background: none;
-      -webkit-text-fill-color: #2c5f7e; 
-      margin-right: 8px;
-      font-size: 2rem;
-    }
-
-    .pill-menu {
-      display: flex;
-      gap: 0.5rem;
-      list-style: none;
-    }
-
-    .pill-menu li a {
-      text-decoration: none;
-      padding: 0.6rem 1.4rem;
-      border-radius: 60px;
-      font-weight: 500;
-      color: #1e3b4c;
-      background: rgba(255,255,255,0.4);
-      backdrop-filter: blur(4px);
-      transition: all 0.2s ease;
-      border: 1px solid transparent;
-    }
-
-    .pill-menu li a:hover {
-      background: white;
-      border-color: #90b8d1;
-      box-shadow: 0 5px 15px rgba(0,80,120,0.2);
-      transform: scale(1.02);
-    }
-
-    /* hero */
-    .hero {
-      background: radial-gradient(circle at 80% 30%, #cde4f5, #ffffff 70%);
-      border-radius: 48px;
-      margin: 0 2rem 2rem 2rem;
-      padding: 3.5rem 3rem;
-      box-shadow: inset 0 -2px 10px rgba(255,255,255,0.7), 0 20px 30px -15px rgba(0,40,60,0.2);
-      border: 1px solid rgba(255,255,255,0.8);
-    }
-
-    .hero-content {
-      max-width: 700px;
-    }
-
-    .hero h1 {
-      font-size: 3.2rem;
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -1px;
-      background: linear-gradient(150deg, #153e53, #0e5a7a);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 1.2rem;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      color: #2b4d62;
-      margin-bottom: 2rem;
-    }
-
-    /* cards servicios */
-    .services-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
-      margin-top: 1rem;
-    }
-
-    .service-card {
-      flex: 1 1 280px;
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.6);
-      border-radius: 36px;
-      padding: 2.2rem 1.8rem;
-      box-shadow: 0 25px 45px -18px rgba(0,60,90,0.3);
-      transition: all 0.35s cubic-bezier(0.15,0.75,0.45,1);
-      color: #0d3344;
-    }
-
-    .service-card:hover {
-      transform: translateY(-12px) scale(1.01);
-      background: rgba(255,255,255,0.9);
-      border-color: #a1c9e3;
-      box-shadow: 0 35px 55px -15px #03517742;
-    }
-
-    .service-icon {
-      font-size: 2.6rem;
-      color: #136b97;
-      margin-bottom: 1.3rem;
-    }
-
-    .service-card h3 {
-      font-size: 1.9rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      border-left: 6px solid #267aab;
-      padding-left: 1rem;
-    }
-
-    .price-tag {
-      display: inline-block;
-      background: #0e4b6b;
-      color: white;
-      font-weight: 600;
-      font-size: 1.6rem;
-      padding: 0.2rem 1.6rem;
-      border-radius: 60px;
-      margin: 1rem 0 1rem 0;
-      letter-spacing: -0.5px;
-      box-shadow: 0 6px 0 #082b3b;
-    }
-
-    .feature-list {
-      list-style: none;
-      margin-top: 1.5rem;
-    }
-
-    .feature-list li {
-      margin-bottom: 0.6rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-weight: 400;
-    }
-
-    .feature-list i {
-      color: #0f6b95;
-      width: 1.5rem;
-    }
-
-    /* pie de página + CTA sutil */
-    .footer-note {
-      text-align: center;
-      padding: 2rem 2rem 2.5rem;
-      color: #2d5a78;
-      font-weight: 300;
-      border-top: 2px dashed rgba(75, 130, 170, 0.3);
-      margin: 2rem 2rem 1rem;
-    }
-
-    /* WHATSAPP FLOATING BUTTON (efecto dinámico + redirect) */
-    .whatsapp-float {
+    /* SPLASH SCREEN - PANTALLA DE CARGA CIRCULAR */
+    .splash-screen {
       position: fixed;
-      bottom: 2.2rem;
-      right: 2.2rem;
-      background: linear-gradient(145deg, #25D366, #128C7E);
-      width: 75px;
-      height: 75px;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #0b2b3b 0%, #144d64 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .splash-screen.hide {
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    .splash-content {
+      text-align: center;
+      animation: fadeInUp 0.6s ease;
+    }
+    
+    .splash-logo {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 25px;
+      background: white;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
-      font-size: 3rem;
-      box-shadow: 0 12px 30px rgba(18, 140, 126, 0.5);
-      transition: all 0.25s ease;
-      z-index: 999;
-      border: 4px solid white;
-      text-decoration: none;
-      animation: pulse-w 2.5s infinite;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+      animation: pulseGlow 1.5s infinite alternate;
     }
-
-    .whatsapp-float:hover {
-      transform: scale(1.15) rotate(3deg);
-      background: #20b359;
-      box-shadow: 0 20px 35px #0f7355;
+    
+    .splash-logo img {
+      width: 110px;
+      height: 110px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+    
+    /* Loader circular */
+    .loader-container {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .circular-loader {
+      width: 60px;
+      height: 60px;
+      position: relative;
+    }
+    
+    .circular-loader svg {
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
+    
+    .circular-loader circle {
+      fill: none;
+      stroke: #ffb347;
+      stroke-width: 5;
+      stroke-linecap: round;
+      stroke-dasharray: 283;
+      stroke-dashoffset: 283;
+      animation: spin 1.2s linear infinite;
+    }
+    
+    .circular-loader .bg-circle {
+      stroke: rgba(255,255,255,0.3);
+      stroke-dasharray: 283;
+      stroke-dashoffset: 0;
       animation: none;
     }
-
-    @keyframes pulse-w {
-      0% { box-shadow: 0 0 0 0 #25d3669f; }
-      70% { box-shadow: 0 0 0 20px #25d36600; }
-      100% { box-shadow: 0 0 0 0 #25d36600; }
-    }
-
-    /* pequeño aviso de numero */
-    .whatsapp-float span {
-      position: absolute;
-      background: #1f2f3b;
+    
+    .loader-text {
+      margin-top: 18px;
       color: white;
-      font-size: 0.9rem;
-      padding: 0.3rem 0.8rem;
-      border-radius: 40px;
-      top: -10px;
-      right: 0;
-      white-space: nowrap;
-      opacity: 0;
-      transform: translateX(10px);
-      transition: 0.2s;
-      pointer-events: none;
-      font-weight: 400;
+      font-weight: 600;
+      letter-spacing: 1px;
+      font-size: 1rem;
     }
-
-    .whatsapp-float:hover span {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    /* totalmente responsivo */
-    @media (max-width: 700px) {
-      header {
-        flex-direction: column;
-        align-items: start;
-        gap: 1rem;
-        margin: 1rem;
+    
+    @keyframes spin {
+      0% {
+        stroke-dashoffset: 283;
       }
-      .hero {
-        margin: 0 1rem 1.5rem 1rem;
-        padding: 2rem 1.5rem;
-      }
-      .hero h1 {
-        font-size: 2.4rem;
-      }
-      .whatsapp-float {
-        width: 65px;
-        height: 65px;
-        font-size: 2.6rem;
-        bottom: 1.5rem;
-        right: 1.5rem;
+      100% {
+        stroke-dashoffset: 0;
       }
     }
-
-    @media (max-width: 480px) {
-      .service-card h3 {
-        font-size: 1.6rem;
+    
+    @keyframes pulseGlow {
+      0% {
+        box-shadow: 0 5px 20px rgba(255,180,70,0.4);
+        transform: scale(0.98);
       }
-      .price-tag {
-        font-size: 1.4rem;
+      100% {
+        box-shadow: 0 15px 40px rgba(255,180,70,0.8);
+        transform: scale(1.02);
       }
     }
-
-    /* Efectos inmersivos extra */
-    .glass-icon {
-      background: rgba(255,255,255,0.5);
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Header & navegación con logo */
+    .top-bar {
+      background: #0b2b3b;
+      color: white;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .logo-img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: white;
+      padding: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    
+    .logo-text h1 {
+      font-size: 1.7rem;
+      letter-spacing: -0.3px;
+      background: linear-gradient(135deg, #FFFFFF, #b9e2f5);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      line-height: 1.2;
+    }
+    
+    .logo-text span {
+      font-size: 0.8rem;
+      color: #9ac9e0;
+      display: block;
+    }
+    
+    .cart-icon {
+      background: #1f4e64;
+      padding: 8px 20px;
       border-radius: 60px;
-      padding: 0.3rem 1rem;
-      backdrop-filter: blur(3px);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.2s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .cart-icon:hover {
+      background: #266c88;
+      transform: scale(1.02);
+    }
+    #cartCount {
+      background: #ffb347;
+      color: #1e2f3a;
+      border-radius: 40px;
+      padding: 2px 10px;
+      font-weight: bold;
+    }
+
+    /* Hero sección */
+    .hero {
+      background: linear-gradient(115deg, #eef5fa 0%, #ffffff 100%);
+      padding: 3rem 2rem;
+      text-align: center;
+      border-bottom: 2px solid rgba(0,120,150,0.2);
+    }
+    .hero h2 {
+      font-size: 2.2rem;
+      color: #0c4e6e;
+    }
+    .hero p {
+      max-width: 650px;
+      margin: 12px auto 0;
+      color: #2c5a70;
+    }
+
+    /* Contenedor productos / servicios */
+    .services-container {
+      max-width: 1400px;
+      margin: 50px auto;
+      padding: 0 25px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 32px;
+      width: 320px;
+      overflow: hidden;
+      transition: all 0.25s ease;
+      box-shadow: 0 20px 30px -12px rgba(0, 60, 80, 0.15);
+      cursor: pointer;
+      border: 1px solid rgba(72, 187, 224, 0.2);
+      display: flex;
+      flex-direction: column;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 28px 38px -16px rgba(16, 100, 120, 0.3);
+    }
+
+    .card-img {
+      height: 180px;
+      background: #eef2f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+    }
+    .card-img img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      transition: transform 0.2s;
+    }
+    .service-card:hover .card-img img {
+      transform: scale(1.02);
+    }
+
+    .card-info {
+      padding: 1.5rem 1.2rem 1.8rem;
+      text-align: center;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-info h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #0f4c5f;
+    }
+    .description {
+      font-size: 0.85rem;
+      color: #4b6f82;
+      margin: 10px 0;
+      line-height: 1.4;
+      text-align: left;
+      background: #f8fafc;
+      padding: 8px 12px;
+      border-radius: 16px;
+    }
+    .description ul {
+      margin-left: 18px;
+      margin-top: 5px;
+    }
+    .description li {
+      margin: 4px 0;
+    }
+    .price {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #1f7a5a;
+      margin: 12px 0 8px;
+      letter-spacing: -0.5px;
+    }
+    .price small {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #2c7a5e;
+    }
+    .btn-add {
+      background: #0f6b7c;
+      border: none;
+      color: white;
+      padding: 12px 20px;
+      width: 90%;
+      font-weight: bold;
+      border-radius: 50px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+      margin-top: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      align-self: center;
+    }
+    .btn-add:hover {
+      background: #0c8aa3;
+      transform: scale(0.98);
+    }
+
+    /* Carrito flotante / panel */
+    .cart-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(10, 30, 40, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      display: flex;
+      justify-content: flex-end;
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.25s;
+    }
+    .cart-overlay.open {
+      visibility: visible;
+      opacity: 1;
+    }
+    .cart-panel {
+      background: #ffffff;
+      width: 380px;
+      height: 100%;
+      overflow-y: auto;
+      padding: 1.5rem;
+      box-shadow: -10px 0 25px rgba(0,0,0,0.2);
+      display: flex;
+      flex-direction: column;
+    }
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #e2edf2;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+    .close-cart {
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #4b6e7e;
+    }
+    .cart-items {
+      flex: 1;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px dashed #cbdde6;
+    }
+    .cart-item-info {
+      font-weight: 500;
+    }
+    .cart-item-price {
+      color: #1f7a5a;
+      font-weight: bold;
+    }
+    .remove-item {
+      background: none;
+      border: none;
+      color: #c25d5d;
+      font-size: 1.2rem;
+      margin-left: 12px;
+      cursor: pointer;
+    }
+    .cart-total {
+      margin-top: 20px;
+      font-size: 1.6rem;
+      font-weight: 800;
+      text-align: right;
+      border-top: 2px solid #aacbd9;
+      padding-top: 15px;
+    }
+    .btn-checkout {
+      background: #25a36f;
+      color: white;
+      font-weight: bold;
+      font-size: 1.1rem;
+      border: none;
+      padding: 14px;
+      border-radius: 50px;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .btn-checkout:hover {
+      background: #1e8b5e;
+    }
+    .empty-cart {
+      text-align: center;
+      color: #6e8b9c;
+      padding: 40px 0;
+    }
+
+    footer {
+      background: #09222e;
+      color: #bcd4e0;
+      text-align: center;
+      padding: 24px;
+      margin-top: 30px;
+      font-size: 0.85rem;
+    }
+
+    /* Ocultar contenido principal mientras carga */
+    .main-content {
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+    
+    .main-content.visible {
+      opacity: 1;
+    }
+
+    @media (max-width: 680px) {
+      .services-container {
+        gap: 25px;
+      }
+      .cart-panel {
+        width: 100%;
+      }
+      .hero h2 {
+        font-size: 1.7rem;
+      }
+      .service-card {
+        width: 280px;
+      }
+      .logo-img {
+        width: 38px;
+        height: 38px;
+      }
+      .logo-text h1 {
+        font-size: 1.3rem;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- cabecera flotante efecto glass -->
-  <header>
-    <div class="logo">
-      <i class="fas fa-microchip"></i> ComputerServiceX
+
+<!-- SPLASH SCREEN CON CARGA CIRCULAR DE 8 SEGUNDOS -->
+<div id="splashScreen" class="splash-screen">
+  <div class="splash-content">
+    <div class="splash-logo">
+      <img id="splashLogoImg" src="https://i.ibb.co/xSCYVKym/unnamed-1.jpg" alt="ComputerServiceX Logo" onerror="this.src='https://img.icons8.com/color/240/000000/laptop--v1.png';">
     </div>
-    <ul class="pill-menu">
-      <li><a href="#servicios"><i class="fas fa-tools"></i> Servicios</a></li>
-      <li><a href="#contacto"><i class="fas fa-phone-alt"></i> Contacto</a></li>
-    </ul>
-  </header>
-
-  <main>
-    <!-- Hero breve (presentación) -->
-    <section class="hero">
-      <div class="hero-content">
-        <h1>Reparación & optimización<br>con estándar profesional</h1>
-        <p><i class="fas fa-check-circle" style="color: #1177aa;"></i> Hemos comenzado durante este año 2026, contamos con la seguridad, confianza a la hora de trabajar con sus ordenadores.</p>
+    <div class="loader-container">
+      <div class="circular-loader">
+        <svg viewBox="0 0 100 100">
+          <circle class="bg-circle" cx="50" cy="50" r="45"></circle>
+          <circle class="progress-circle" cx="50" cy="50" r="45" style="animation: spin 1.2s linear infinite; stroke-dashoffset: 283; stroke-dasharray: 283;"></circle>
+        </svg>
       </div>
-    </section>
+    </div>
+    <div class="loader-text">Cargando servicios técnicos...</div>
+  </div>
+</div>
 
-    <!-- Servicios (tres tipos) -->
-    <section id="servicios" class="container" style="padding-top: 0;">
-      <div class="services-grid">
-        <!-- Servicio 1: Mantenimiento PC / notebook -->
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-fan"></i></div>
-          <h3>Mantenimiento <br>PC Torre & Notebook</h3>
-          <div class="price-tag">$20.000</div>
-          <ul class="feature-list">
-            <li><i class="fas fa-temperature-high"></i> Cambio de pasta térmica</li>
-            <li><i class="fas fa-wind"></i> Limpieza profunda interna</li>
-            <li><i class="fas fa-brush"></i> Aspirado y soplado seguro</li>
-            <li><i class="fas fa-check"></i> Revisión de ventiladores</li>
-          </ul>
-        </div>
-
-        <!-- Servicio 2: Formato completo + mantenimiento -->
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-window-restore"></i></div>
-          <h3>Formateo + Sistema + Programas + Mantenimiento</h3>
-          <div class="price-tag">$30.000</div>
-          <ul class="feature-list">
-            <li><i class="fas fa-trash-alt"></i> Formateo completo </li>
-            <li><i class="fab fa-windows"></i> Sistema operativo a elección</li>
-            <li><i class="fas fa-cubes"></i> Programas esenciales (Office, navegador, antivirus)</li>
-            <li><i class="fas fa-fan"></i> Mantenimiento completo incluido</li>
-            <li><i class="fas fa-shield-alt"></i> Optimización y controladores</li>
-          </ul>
-        </div>
-
-        <!-- NUEVO Servicio 3: Asesoría Tecnológica (hardware, marcas, consolas) -->
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-headset"></i></div>
-          <h3>Asesoría Tecnológica</h3>
-          <div class="price-tag">$30.000</div>
-          <ul class="feature-list">
-            <li><i class="fas fa-microchip"></i> Asesoramiento a nivel de hardware: qué componente sugerir</li>
-            <li><i class="fas fa-tag"></i> Marcas más recomendables según necesidad</li>
-            <li><i class="fas fa-gamepad"></i> Asesoramiento en consolas de videojuegos</li>
-            <li><i class="fas fa-lightbulb"></i> Guía personalizada para compra o mejora</li>
-          </ul>
-        </div>
+<!-- CONTENIDO PRINCIPAL (oculto hasta que termine la carga) -->
+<div id="mainContent" class="main-content">
+  <div class="top-bar">
+    <div class="logo">
+      <img id="headerLogo" class="logo-img" src="https://i.ibb.co/xSCYVKym/unnamed-1.jpg" alt="Logo" onerror="this.src='https://img.icons8.com/color/240/000000/laptop--v1.png';">
+      <div class="logo-text">
+        <h1>⚡ ComputerServiceX</h1>
+        <span>Mantenimiento · Formateo · Asesoría · Licencias</span>
       </div>
-    </section>
+    </div>
+    <div class="cart-icon" id="openCartBtn">
+      🛒 Carrito <span id="cartCount">0</span>
+    </div>
+  </div>
 
-    <!-- Pie de página / contacto y número -->
-    <footer id="contacto" class="footer-note">
-      <p style="font-size: 1.2rem; font-weight: 400;"> <i class="fas fa-headset"></i>  ¿Necesitas asistencia?  Escríbenos directamente por WhatsApp</p>
-      <p style="margin-top: 1rem; background: rgba(255,255,255,0.7); border-radius: 60px; padding: 0.8rem 2rem; display: inline-block; backdrop-filter: blur(4px);">
-        <i class="fab fa-whatsapp" style="color: #25D366; font-size: 1.8rem;"></i>  +56 9 3051 7409
-      </p>
-      <p style="margin-top: 2rem; font-size: 0.95rem;">© 2026 ComputerServiceX · reparación con garantía</p>
-    </footer>
-  </main>
+  <section class="hero">
+    <h2>💻 Servicios técnicos profesionales + software original</h2>
+    <p>Mantenimiento, formateo, asesoría en hardware y licencias genuinas. Precios en CLP, transferencia bancaria.</p>
+  </section>
 
-  <!-- WHATSAPP FLOTANTE (redirige a conversación) -->
-  <a href="https://wa.me/56930517409?text=Hola%2C%20necesito%20servicio%20técnico%20para%20mi%20equipo.%20¿Me%20pueden%20ayudar%3F" 
-     class="whatsapp-float" 
-     target="_blank" 
-     rel="noopener noreferrer"
-     aria-label="Contactar por WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-    <span>+56 9 3051 7409</span>
-  </a>
+  <div class="services-container" id="productsContainer">
+    <!-- Los productos se inyectarán dinámicamente con JS -->
+  </div>
 
-  <!-- pequeño javascript para efectos dinámicos adicionales (scroll reveal suave y resaltado) -->
-  <script>
-    (function() {
-      // Dinamismo: al hacer scroll las cards se iluminan ligeramente cuando entran en vista
-      const cards = document.querySelectorAll('.service-card, .hero');
+  <footer>
+    🖥️ ComputerServiceX - Servicio técnico especializado + Licencias originales con instalación incluida<br>
+    📍 Transferencia bancaria | Soporte post-venta | Asesoría personalizada
+  </footer>
+</div>
+
+<!-- Panel carrito -->
+<div id="cartOverlay" class="cart-overlay">
+  <div class="cart-panel">
+    <div class="cart-header">
+      <h2>📦 Tu pedido</h2>
+      <button class="close-cart" id="closeCartBtn">✖</button>
+    </div>
+    <div id="cartItemsList" class="cart-items">
+      <div class="empty-cart">🛍️ Aún no agregaste productos</div>
+    </div>
+    <div id="cartTotalPanel" class="cart-total">Total: $0</div>
+    <button id="checkoutBtn" class="btn-checkout">💬 Finalizar compra → WhatsApp</button>
+  </div>
+</div>
+
+<script>
+  (function() {
+    // ---------- CATÁLOGO COMPLETO: Servicios técnicos + licencias originales ----------
+    const PRODUCTS = [
+      {
+        id: "mantenimiento_pc",
+        name: "Mantenimiento PC Torre & Notebook",
+        price: 20000,
+        imgUrl: "https://img.icons8.com/color/240/000000/laptop--v1.png",
+        alt: "Mantenimiento preventivo PC",
+        description: "✅ Limpieza profunda interna\n✅ Aspirado y soplado seguro\n✅ Revisión de ventiladores\n✅ Cambio de pasta térmica"
+      },
+      {
+        id: "formateo_completo",
+        name: "Formateo + Sistema + Programas",
+        price: 30000,
+        imgUrl: "https://img.icons8.com/fluency/240/000000/format.png",
+        alt: "Formateo completo PC",
+        description: "✅ Formateo completo\n✅ SO a elección (Windows/Linux)\n✅ Programas esenciales (Office, navegador, antivirus)\n✅ Mantenimiento completo + optimización drivers"
+      },
+      {
+        id: "asesoria_tecnologica",
+        name: "Asesoría Tecnológica",
+        price: 30000,
+        imgUrl: "https://img.icons8.com/color/240/000000/advice.png",
+        alt: "Asesoría hardware y gaming",
+        description: "✅ Asesoramiento hardware: componentes, marcas\n✅ Consolas de videojuegos: recomendaciones\n✅ Guía personalizada para compra o mejora\n✅ Soporte para elegir según necesidad"
+      },
+      {
+        id: "win11pro_instalacion",
+        name: "Windows 11 Pro + Servicio instalación",
+        price: 19990,
+        imgUrl: "https://www.licenciasoriginales.cl/wp-content/uploads/2024/09/Windows-11-Pro.webp",
+        alt: "Windows 11 Pro licencia original",
+        description: "Licencia original + instalación profesional y activación."
+      },
+      {
+        id: "office2024_pro",
+        name: "Microsoft Office 2024 Profesional",
+        price: 18990,
+        imgUrl: "https://tulicencias.com/cdn-cgi/image/width=1144,height=1144,fit=contain,quality=90,format=webp,onerror=redirect,metadata=none/wp-content/uploads/2024/10/office-2024-professional-plus-new.jpg",
+        alt: "Microsoft Office 2024 Professional Plus",
+        description: "Suite completa: Word, Excel, PowerPoint, Outlook. Instalación incluida."
+      }
+    ];
+
+    let cart = [];
+
+    const BANK_DATA = {
+      accountType: "Cuenta Rut",
+      rut: "20.258.164-1",
+      name: "Luis Jaque Soto",
+      email: "luis.jaque025@gmail.com"
+    };
+
+    const formatPrice = (price) => {
+      return new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', minimumFractionDigits: 0 }).format(price);
+    };
+
+    const saveCartToLocal = () => {
+      localStorage.setItem('computerServiceX_cart', JSON.stringify(cart));
+    };
+
+    const loadCartFromLocal = () => {
+      const stored = localStorage.getItem('computerServiceX_cart');
+      if (stored) {
+        try {
+          const parsed = JSON.parse(stored);
+          if (Array.isArray(parsed)) cart = parsed;
+        } catch(e) { console.warn(e); }
+      }
+      updateCartUI();
+    };
+
+    const addToCart = (product) => {
+      cart.push({ id: product.id, name: product.name, price: product.price });
+      saveCartToLocal();
+      updateCartUI();
+      const btnTemp = document.querySelector(`.service-card[data-id='${product.id}'] .btn-add`);
+      if (btnTemp) {
+        const originalText = btnTemp.innerText;
+        btnTemp.innerText = '✓ Agregado';
+        setTimeout(() => { if(btnTemp) btnTemp.innerText = originalText; }, 1000);
+      }
+    };
+
+    const removeFromCart = (index) => {
+      cart.splice(index, 1);
+      saveCartToLocal();
+      updateCartUI();
+    };
+
+    const updateCartUI = () => {
+      const cartCountSpan = document.getElementById('cartCount');
+      if (cartCountSpan) cartCountSpan.innerText = cart.length;
       
-      // opción de intersección para agregar un pequeño efecto extra
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.transition = 'box-shadow 0.4s, transform 0.3s';
-            entry.target.style.boxShadow = '0 30px 50px -15px rgba(18, 95, 140, 0.4), inset 0 0 0 1px rgba(255,255,255,0.9)';
-            // después de 0.6s vuelve a la sombra original (pero manteniendo el hover)
-            setTimeout(() => {
-              if (entry.target.classList.contains('service-card')) {
-                entry.target.style.boxShadow = '0 25px 45px -18px rgba(0,60,90,0.3)';
-              } else {
-                entry.target.style.boxShadow = 'inset 0 -2px 10px rgba(255,255,255,0.7), 0 20px 30px -15px rgba(0,40,60,0.2)';
-              }
-            }, 500);
-          }
+      const cartItemsDiv = document.getElementById('cartItemsList');
+      const cartTotalDiv = document.getElementById('cartTotalPanel');
+      if (!cartItemsDiv) return;
+      
+      if (cart.length === 0) {
+        cartItemsDiv.innerHTML = `<div class="empty-cart">🛍️ Aún no agregaste productos</div>`;
+        if (cartTotalDiv) cartTotalDiv.innerHTML = `Total: $0`;
+        return;
+      }
+      
+      let itemsHtml = '';
+      let total = 0;
+      cart.forEach((item, idx) => {
+        total += item.price;
+        itemsHtml += `
+          <div class="cart-item">
+            <div class="cart-item-info">
+              <strong>${escapeHtml(item.name)}</strong><br>
+              <span class="cart-item-price">${formatPrice(item.price)}</span>
+            </div>
+            <button class="remove-item" data-index="${idx}">🗑️</button>
+          </div>
+        `;
+      });
+      cartItemsDiv.innerHTML = itemsHtml;
+      if (cartTotalDiv) cartTotalDiv.innerHTML = `Total: ${formatPrice(total)}`;
+      
+      document.querySelectorAll('.remove-item').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const idx = parseInt(btn.getAttribute('data-index'));
+          if (!isNaN(idx)) removeFromCart(idx);
+          e.stopPropagation();
         });
-      }, { threshold: 0.3 });
+      });
+    };
 
-      cards.forEach(card => observer.observe(card));
+    function escapeHtml(str) {
+      return str.replace(/[&<>]/g, function(m) {
+        if (m === '&') return '&amp;';
+        if (m === '<') return '&lt;';
+        if (m === '>') return '&gt;';
+        return m;
+      });
+    }
 
-      // también se puede agregar un pequeño console log creativo (opcional)
-      console.log('⚡ ComputerServiceX - página dinámica cargada (nuevo servicio: Asesoría Tecnológica)');
-    })();
-  </script>
+    const generateWhatsAppMessage = () => {
+      if (cart.length === 0) {
+        alert("🛒 Agrega al menos un producto antes de finalizar la compra.");
+        return null;
+      }
+      let serviciosList = "";
+      cart.forEach((item, idx) => {
+        serviciosList += `${idx+1}. ${item.name} - ${formatPrice(item.price)}\n`;
+      });
+      const total = cart.reduce((sum, item) => sum + item.price, 0);
+      const totalFormatted = formatPrice(total);
+      
+      return `🛒 *COMPRA COMPUTERSERVICEX* 🛒\n\n` +
+              `*Servicios seleccionados:*\n${serviciosList}\n` +
+              `*Total a pagar:* ${totalFormatted}\n\n` +
+              `💳 *DATOS PARA TRANSFERENCIA BANCARIA* 💳\n` +
+              `▪️ ${BANK_DATA.accountType}: ${BANK_DATA.rut}\n` +
+              `▪️ Titular: ${BANK_DATA.name}\n` +
+              `▪️ Correo: ${BANK_DATA.email}\n\n` +
+              `✅ Una vez realizada la transferencia, envía el comprobante para coordinar el servicio técnico o entrega de licencias.\n` +
+              `¡Gracias por preferir ComputerServiceX!`;
+    };
+
+    const handleCheckout = () => {
+      const mensaje = generateWhatsAppMessage();
+      if (!mensaje) return;
+      const numeroWhatsApp = '56930517409';
+      window.open(`https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`, '_blank');
+    };
+
+    const renderProducts = () => {
+      const container = document.getElementById('productsContainer');
+      if (!container) return;
+      container.innerHTML = '';
+      
+      PRODUCTS.forEach(product => {
+        const card = document.createElement('div');
+        card.className = 'service-card';
+        card.setAttribute('data-id', product.id);
+        
+        let descHtml = '';
+        if (product.description) {
+          if (product.description.includes('✅')) {
+            const lines = product.description.split('\n').filter(l => l.trim());
+            let items = '';
+            lines.forEach(line => {
+              const cleanLine = line.replace('✅', '').trim();
+              if (cleanLine) items += `<li>✅ ${cleanLine}</li>`;
+            });
+            descHtml = `<div class="description"><ul>${items}</ul></div>`;
+          } else {
+            descHtml = `<div class="description">${product.description}</div>`;
+          }
+        }
+        
+        card.innerHTML = `
+          <div class="card-img">
+            <img src="${product.imgUrl}" alt="${product.alt}" loading="lazy" onerror="this.src='https://img.icons8.com/color/240/000000/maintenance.png';">
+          </div>
+          <div class="card-info">
+            <h3>${escapeHtml(product.name)}</h3>
+            ${descHtml}
+            <div class="price">${formatPrice(product.price)} <small>CLP</small></div>
+            <button class="btn-add">➕ Agregar al carrito</button>
+          </div>
+        `;
+        const addBtn = card.querySelector('.btn-add');
+        addBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          addToCart(product);
+        });
+        container.appendChild(card);
+      });
+    };
+
+    const initCartOverlay = () => {
+      const overlay = document.getElementById('cartOverlay');
+      const openBtn = document.getElementById('openCartBtn');
+      const closeBtn = document.getElementById('closeCartBtn');
+      const checkoutButton = document.getElementById('checkoutBtn');
+      
+      if (openBtn) openBtn.addEventListener('click', () => overlay.classList.add('open'));
+      if (closeBtn) closeBtn.addEventListener('click', () => overlay.classList.remove('open'));
+      if (checkoutButton) checkoutButton.addEventListener('click', () => handleCheckout());
+      overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.classList.remove('open'); });
+    };
+
+    // ---------- SISTEMA DE CARGA: 8 SEGUNDOS + MOSTRAR CONTENIDO ----------
+    const splashScreen = document.getElementById('splashScreen');
+    const mainContent = document.getElementById('mainContent');
+    
+    // Asegurar que la carga dure exactamente 8 segundos (8000ms)
+    setTimeout(() => {
+      // Ocultar splash con animación
+      splashScreen.classList.add('hide');
+      // Mostrar contenido principal
+      mainContent.classList.add('visible');
+      
+      // Remover splash del DOM después de la transición para liberar recursos
+      setTimeout(() => {
+        if (splashScreen && splashScreen.parentNode) {
+          splashScreen.style.display = 'none';
+        }
+      }, 800);
+    }, 8000); // 8 segundos exactos
+
+    // Inicializar todo el contenido funcional después de que el DOM esté listo
+    const initializeApp = () => {
+      renderProducts();
+      loadCartFromLocal();
+      initCartOverlay();
+    };
+    
+    // Esperar a que cargue el DOM antes de inicializar (pero la splash ya está visible)
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initializeApp);
+    } else {
+      initializeApp();
+    }
+  })();
+</script>
 </body>
 </html>
